@@ -9,7 +9,7 @@ import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 import ViewBookDetails from "./components/ViewBookDetails/ViewBookDetails";
 import Navbar from "./components/Navbar/Navbar";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { authActions } from "./store/auth";
 import Favourite from "./components/Profile/Favourite";
 import UserOrderHistory from "./components/Profile/UserOrderHistory";
