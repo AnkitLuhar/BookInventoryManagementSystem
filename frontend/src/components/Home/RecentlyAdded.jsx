@@ -8,13 +8,13 @@ const RecentlyAdded = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/get-recent-books"
+        "https://bookinventorymanagementsystem.onrender.com/get-recent-books"
       );
       setData(response.data.data);
       // console.log(response.data.data);
     };
     fetch();
-  }, []);
+  });
   return (
     <div className="mt-8 px-4">
       <h4 className="text-3xl text-yellow-100">Recently added books</h4>

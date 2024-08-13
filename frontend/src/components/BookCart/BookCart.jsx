@@ -1,10 +1,9 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const BookCart = ({ data, favourite }) => {
   // console.log(data);
-  const [prod, setProd] = useState({});
+  // const [prod, setProd] = useState({});
   const headers = {
     id: localStorage.getItem("id"),
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -13,7 +12,7 @@ const BookCart = ({ data, favourite }) => {
 
   const handleFavourites = async () => {
     const response = await axios.post(
-      "http://localhost:8080/delete-book-from-favourite",
+      "https://bookinventorymanagementsystem.onrender.com/delete-book-from-favourite",
       {},
       { headers }
     );

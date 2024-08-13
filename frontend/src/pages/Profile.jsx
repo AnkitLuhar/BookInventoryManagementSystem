@@ -15,14 +15,17 @@ const Profile = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get("http://localhost:8080/get-user-info", {
-        headers,
-      });
+      const response = await axios.get(
+        "https://bookinventorymanagementsystem.onrender.com/get-user-info",
+        {
+          headers,
+        }
+      );
 
       setProfile(response.data);
     };
     fetch();
-  }, []);
+  });
 
   return (
     <div className="bg-zinc-900 px-3 md:px-12 flex flex-col md:flex-row h-screen py-8 gap-4 text-white">

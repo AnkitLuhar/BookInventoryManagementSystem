@@ -28,7 +28,7 @@ const Signup = () => {
         alert("all fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:8080/sign-up",
+          "https://bookinventorymanagementsystem.onrender.com/sign-up",
           values
         );
         alert(response.data.message);

@@ -16,9 +16,12 @@ const UserOrderHistory = () => {
   useEffect(() => {
     const fetchOrderHistory = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/get-order-history", {
-          headers,
-        });
+        const res = await axios.get(
+          "https://bookinventorymanagementsystem.onrender.com/get-order-history",
+          {
+            headers,
+          }
+        );
         setOrderHistory(res.data.data);
       } catch (err) {
         console.error(err);
@@ -27,7 +30,7 @@ const UserOrderHistory = () => {
       }
     };
     fetchOrderHistory();
-  }, []);
+  });
 
   if (loading) {
     return (

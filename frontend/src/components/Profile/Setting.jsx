@@ -12,7 +12,7 @@ const Setting = () => {
 
   const submitData = async () => {
     const res = await axios.put(
-      "http://localhost:8080/update-address",
+      "https://bookinventorymanagementsystem.onrender.com/update-address",
       { Value },
       { headers }
     );
@@ -25,15 +25,18 @@ const Setting = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-      const res = await axios.get("http://localhost:8080/get-user-info", {
-        headers,
-      });
+      const res = await axios.get(
+        "https://bookinventorymanagementsystem.onrender.com/get-user-info",
+        {
+          headers,
+        }
+      );
       //   console.log(res.data);
       setProfile(res.data);
       setValue({ address: res.data.address });
     };
     fetch();
-  }, []);
+  });
   return (
     <>
       {!profile && (

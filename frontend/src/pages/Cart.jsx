@@ -21,7 +21,7 @@ const Cart = () => {
     const fetchCartItems = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8080/get-from-cart",
+          "https://bookinventorymanagementsystem.onrender.com/get-from-cart",
           { headers }
         );
         setCart(response.data.data);
@@ -31,7 +31,7 @@ const Cart = () => {
       }
     };
     fetchCartItems();
-  }, []);
+  });
 
   // Fetch product details for items in cart
   useEffect(() => {
@@ -40,7 +40,7 @@ const Cart = () => {
         try {
           const productPromises = cart.map(async (item) => {
             const response = await axios.get(
-              `http://localhost:8080/get-book-by-id/${item}`
+              `https://bookinventorymanagementsystem.onrender.com/get-book-by-id/${item}`
             );
             return response.data; // Assuming response.data is the product information
           });
@@ -55,11 +55,11 @@ const Cart = () => {
       };
       fetchProducts();
     }
-  }, [cart]); // Dependency on cart to ensure products are fetched only when cart is updated
+  }, [products, cart]); // Dependency on cart to ensure products are fetched only when cart is updated
 
   const deleteItem = async (bookid) => {
     const res = await axios.post(
-      `http://localhost:8080/remove-from-cart/${bookid}`,
+      `https://bookinventorymanagementsystem.onrender.com/remove-from-cart/${bookid}`,
       {},
       { headers }
     );
@@ -69,18 +69,18 @@ const Cart = () => {
   useEffect(() => {
     if (cart && cart.length > 0) {
       let totals = 0;
-      products.map((items) => {
+      products.forEach((items) => {
         totals += Number(items.price);
       });
       setTotal(totals);
       // totals = 0;
     }
-  }, [total]);
+  }, [cart, products]);
 
   const PlaceOrder = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:8080/place-order",
+        "https://bookinventorymanagementsystem.onrender.com/place-order",
         { order: products.map((item) => item) },
         { headers }
       );

@@ -17,12 +17,12 @@ const ViewBookDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `http://localhost:8080/get-book-by-id/${id}`
+        `https://bookinventorymanagementsystem.onrender.com/get-book-by-id/${id}`
       );
       setData(response.data.data);
     };
     fetch();
-  }, []);
+  });
 
   const headers = {
     id: localStorage.getItem("id"),
@@ -32,7 +32,7 @@ const ViewBookDetails = () => {
 
   const handleFavourite = async () => {
     const response = await axios.post(
-      "http://localhost:8080/add-book-to-favourite",
+      "https://bookinventorymanagementsystem.onrender.com/add-book-to-favourite",
       {},
       { headers }
     );
@@ -41,7 +41,7 @@ const ViewBookDetails = () => {
 
   const handleCart = async () => {
     const response = await axios.put(
-      "http://localhost:8080/add-to-cart",
+      "https://bookinventorymanagementsystem.onrender.com/add-to-cart",
       {},
       { headers }
     );
@@ -53,7 +53,7 @@ const ViewBookDetails = () => {
       {Data && (
         <div className="px-12 py-8 bg-zinc-900 flex ap-8">
           <div className="bg-zinc-800 rounded px-4 py-12 h-screen w-1/2  flex items-start justify-around gap-8">
-            <img src={Data.url} className="h-auto" />
+            <img src={Data.url} alt="data" className="h-auto" />
 
             {isLoggedIn === true && role === "user" && (
               <>

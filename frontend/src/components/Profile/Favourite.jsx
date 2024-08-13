@@ -5,7 +5,7 @@ import { GoBookmarkSlashFill } from "react-icons/go";
 
 const Favourite = () => {
   const [favourites, setFavourites] = useState([]);
-  const [prod, setProd] = useState([]);
+  // const [prod, setProd] = useState([]);
 
   const headers = {
     id: localStorage.getItem("id"),
@@ -15,14 +15,14 @@ const Favourite = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "http://localhost:8080/get-favourite-books",
+        "https://bookinventorymanagementsystem.onrender.com/get-favourite-books",
         { headers }
       );
       setFavourites(response.data.data);
       //   console.log(response.data.data);
     };
     fetch();
-  }, [favourites]);
+  });
 
   return (
     <>
