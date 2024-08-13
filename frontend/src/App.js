@@ -16,7 +16,7 @@ import UserOrderHistory from "./components/Profile/UserOrderHistory";
 import Setting from "./components/Profile/Setting";
 const App = () => {
   const dispatch = useDispatch();
-  const role = useSelector((state) => state.auth.role);
+  // const role = useSelector((state) => state.auth.role);
   useEffect(() => {
     if (
       localStorage.getItem("id") &&
@@ -26,7 +26,7 @@ const App = () => {
       dispatch(authActions.login());
       dispatch(authActions.changeRole(localStorage.getItem("role")));
     }
-  }, []);
+  });
   return (
     <div>
       <Navbar />
